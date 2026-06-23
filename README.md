@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Erlang][erlang_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [MySQL][mysql_examples], [Node.js][nodejs_examples], [PowerShell][powershell_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [Standard ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Common&nbsp;Lisp][cl_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Erlang][erlang_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [MySQL][mysql_examples], [Node.js][nodejs_examples], [PowerShell][powershell_examples], [Rust][rust_examples], [Scala&nbsp;3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [Standard&nbsp;ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX&nbsp;Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously monitoring.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -26,7 +26,7 @@ This project depends on the following external software for the **Microsoft Wind
 Optionally one may also install the following software:
 
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
-- [Visual Studio Code 1.123][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.125][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [**`/opt/`**][linux_opt] directory on Unix).
@@ -66,6 +66,15 @@ where
 - file [**`README.md`**](README.md) is the [Markdown][github_markdown] document for this page.
 - file [**`RESOURCES.md`**](RESOURCES.md) gathers [Component Pascal][component_pascal] related informations.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
+
+We also define a virtual drive &ndash; e.g. drive **`K:`** &ndash; in our working environment in order to reduce/hide the real path of our project directory (see article ["Windows command prompt limitation"][windows_limitation] from Microsoft Support).
+> **:mag_right:** We use the Windows external command [**`subst`**][windows_subst] to create virtual drives; for instance:
+>
+> <pre style="font-size:80%;">
+> <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst" rel="external">subst</a> K: <a href="https://docs.microsoft.com/en-us/windows/deployment/usmt/usmt-recognized-environment-variables#bkmk-2" rel="external">%USERPROFILE%</a>\workspace-perso\component-pascal-examples</b>
+> </pre>
+
+In the next section we give a brief description of the [batch files][windows_batch_file] present in this project.
 
 <!--=======================================================================-->
 
@@ -143,7 +152,7 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://github.com/k-john-gough/gpcp/releases/tag/v1.4.08-beta3" rel="external">gpcp-NET1.4.08b3.zip</a>                               <i>(  4 MB)</i>
 <a href="https://adoptium.net/temurin/releases?version=17&os=windows&arch=x64">OpenJDK17U-jdk_x64_windows_hotspot_17.0.19_10.zip</a>  <i>(188 MB)</i>
 <a href="https://git-scm.com/download/win" rel="external">PortableGit-2.54.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.123.0.zip</a>                       <i>(131 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.125.1.zip</a>                       <i>(131 MB)</i>
 </pre>
 </dd></dl>
 
@@ -228,35 +237,31 @@ gardens point component pascal:  version 1.4.07 of 04 March 2018
 [ada_examples]: https://github.com/michelou/ada-examples#top
 [akka_examples]: https://github.com/michelou/akka-examples#top
 [cobol_examples]: https://github.com/michelou/cobol-examples#top
-[conemu_downloads]: https://github.com/Maximus5/ConEmu/releases
+[cl_examples]: https://github.com/michelou/cl-examples#top
+[conemu_downloads]: https://github.com/Maximus5/ConEmu/releases "https://github.com/Maximus5/ConEmu/releases"
 [conemu_relnotes]: https://conemu.github.io/blog/2023/07/24/Build-230724.html
-[component_pascal]: https://en.wikipedia.org/wiki/Component_Pascal
+[component_pascal]: https://en.wikipedia.org/wiki/Component_Pascal "https://en.wikipedia.org/wiki/Component_Pascal"
 [cpp_examples]: https://github.com/michelou/cpp-examples#top
 [dafny_examples]: https://github.com/michelou/dafny-examples#top
 [dart_examples]: https://github.com/michelou/dart-examples#top
 [deno_examples]: https://github.com/michelou/deno-examples#top
 [erlang_examples]: https://github.com/michelou/erlang-examples#top
 [flix_examples]: https://github.com/michelou/flix-examples#top
-[git_cli]: https://git-scm.com/docs/git
-[git_downloads]: https://git-scm.com/download/win
+[git_cli]: https://git-scm.com/docs/git "https://git-scm.com/docs/git"
+[git_downloads]: https://git-scm.com/download/win "https://git-scm.com/download/win"
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.54.0.adoc
-[github_markdown]: https://github.github.com/gfm/
+[github_markdown]: https://github.github.com/gfm/ "https://github.github.com/gfm/"
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [gpcp_downloads]: https://github.com/k-john-gough/gpcp/releases
 [gpcp_java_downloads]: https://github.com/pahihu/gpcp-JVM
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
-[gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
-[gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
-[gradle_install]: https://gradle.org/install/
-[gradle_latest]: https://gradle.org/releases/
-[gradle_relnotes]: https://docs.gradle.org/8.0/release-notes.html
 [haskell_examples]: https://github.com/michelou/haskell-examples#top
 [kafka_examples]: https://github.com/michelou/kafka-examples#top
 [kotlin_examples]: https://github.com/michelou/kotlin-examples#top
-[linux_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
+[linux_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html "https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html"
 [llvm_examples]: https://github.com/michelou/llvm-examples#top
 [m2_examples]: https://github.com/michelou/m2-examples#top
-[man1_awk]: https://www.linux.org/docs/man1/awk.html
+[man1_awk]: https://www.linux.org/docs/man1/awk.html "https://www.linux.org/docs/man1/awk.html"
 [man1_diff]: https://www.linux.org/docs/man1/diff.html
 [man1_file]: https://www.linux.org/docs/man1/file.html
 [man1_grep]: https://www.linux.org/docs/man1/grep.html
@@ -264,21 +269,16 @@ gardens point component pascal:  version 1.4.07 of 04 March 2018
 [man1_mv]: https://www.linux.org/docs/man1/mv.html
 [man1_rmdir]: https://www.linux.org/docs/man1/rmdir.html
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
-[man1_wc]: https://www.linux.org/docs/man1/wc.html
-[maven_latest]: https://maven.apache.org/download.cgi
-[maven_relnotes]: https://maven.apache.org/docs/3.9.11/release-notes.html
+[man1_wc]: https://www.linux.org/docs/man1/wc.html "https://www.linux.org/docs/man1/wc.html"
 [mysql_examples]: https://github.com/michelou/mysql-examples#top
 [nodejs_examples]: https://github.com/michelou/nodejs-examples#top
 [powershell_examples]: https://github.com/michelou/powershell-examples#top
-[rosetta_code]: https://rosettacode.org/
+[rosetta_code]: https://rosettacode.org/ "https://rosettacode.org/"
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [scala3_examples]: https://github.com/michelou/scala3-examples#top
 [golang_examples]: https://github.com/michelou/sml-examples#top
 [sml_examples]: https://github.com/michelou/sml-examples#top
 [spark_examples]: https://github.com/michelou/spark-examples#top
-[spring]: https://spring.io/
-[spring_boot_downloads]: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot
-[spring_boot_relnotes]: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes
 [spring_examples]: https://github.com/michelou/spring-examples#top
 [jre_8u272]: https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/tag/jdk8u272-b10
 [jre_8u272_relnotes]: https://mail.openjdk.org/pipermail/jdk8u-dev/2020-October/012817.html
@@ -310,6 +310,7 @@ gardens point component pascal:  version 1.4.07 of 04 March 2018
 11.0.27 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043306.html
 11.0.28 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045612.html
 11.0.29 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049111.html
+11.0.30 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2026-January/051739.html
 -->
 [temurin_openjdk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
 [temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-19-relnotes.html
@@ -326,19 +327,20 @@ gardens point component pascal:  version 1.4.07 of 04 March 2018
 17.0.15 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043307.html
 17.0.16 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045614.html
 17.0.17 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049112.html
-17.0.18 -> 
-17.0.19 -> 
+17.0.18 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2026-January/051740.html
+17.0.19 -> https://mail.openjdk.org/archives/list/jdk-updates-dev@openjdk.org/thread/NPI56ASV64QS2A23ODDPZX4D2BATNZKL/
 -->
 [temurin_openjdk17]: https://adoptium.net/temurin/releases?version=17&os=windows&arch=x64
 [temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-2-bugfixes.html
-[temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049112.html
+[temurin_openjdk17_relnotes]: https://mail.openjdk.org/archives/list/jdk-updates-dev@openjdk.org/thread/NPI56ASV64QS2A23ODDPZX4D2BATNZKL/ "https://mail.openjdk.org/archives/list/jdk-updates-dev@openjdk.org/thread/NPI56ASV64QS2A23ODDPZX4D2BATNZKL/"
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples#top
-[unix_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
-[vscode_downloads]: https://code.visualstudio.com/Download
+[unix_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html "https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html"
+[vscode_downloads]: https://code.visualstudio.com/Download "https://code.visualstudio.com/Download"
 [vscode_relnotes]: https://code.visualstudio.com/updates
+[windows_batch_file]: https://en.wikibooks.org/wiki/Windows_Batch_Scripting "https://en.wikibooks.org/wiki/Windows_Batch_Scripting"
 [windows_installer]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
-[windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
+[windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst "https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst"
 [wix_examples]: https://github.com/michelou/wix-examples#top
 [zig_examples]: https://github.com/michelou/zig-examples#top
-[zip_archive]: https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/
+[zip_archive]: https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/ "https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/"

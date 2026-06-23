@@ -9,8 +9,8 @@ DEBUG ?= 0
 
 include ../Makefile.inc
 
-MAIN_NAME  = Hello
-MAIN_CLASS = CP.Hello.$(MAIN_NAME)
+MAIN_NAME  = Vectors
+MAIN_CLASS = CP.Vectors.$(MAIN_NAME)
 MAIN_ARGS  =
 
 TARGET ?= net
@@ -26,7 +26,7 @@ VERBOSE_OPT = -verbose
 else
 VERBOSE_OPT = -quiet
 endif
-GPCP_OPTS = $(VERBOSE_OPT) -strict -target:$(TARGET)
+GPCP_OPTS = $(VERBOSE_OPT) -target:$(TARGET)
 
 JARS_DIR = $(subst \,/,$(JROOT))/jars
 SYMS_DIR = $(subst \,/,$(JROOT))/symfiles

@@ -9,8 +9,8 @@ DEBUG ?= 0
 
 include ../Makefile.inc
 
-MAIN_NAME  = Hello
-MAIN_CLASS = CP.Hello.$(MAIN_NAME)
+MAIN_NAME  = HelloWorld
+MAIN_CLASS = CP.HelloWorld.$(MAIN_NAME)
 MAIN_ARGS  =
 
 TARGET ?= net

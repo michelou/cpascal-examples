@@ -83,7 +83,7 @@ if %ERRORLEVEL%==0 ( set _PWSH_CMD=pwsh.exe
 @rem target=net
 set _MAIN_NAME=TypeNames
 @rem target=jvm
-set _MAIN_CLASS=CP.TypeNames.TypeNames
+set _MAIN_CLASS=CP.TypeNames.%_MAIN_NAME%
 set _MAIN_ARGS=
 goto :eof
 

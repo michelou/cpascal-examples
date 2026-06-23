@@ -188,11 +188,11 @@ compile_net() {
     if [[ $DEBUG -eq 1 ]]; then
         debug "CPSYM=$CPSYM"
         debug "Current directory: $(mixed_path $PWD)"
-        debug "\"$GPCP_NET_CMD\" $verbose_opt -strict -target:$TARGET $source_files"
+        debug "\"$GPCP_NET_CMD\" $verbose_opt -target:$TARGET $source_files"
     elif [[ $VERBOSE -eq 1 ]]; then
         echo "Compile $n_files to directory \"${TARGET_DIR/$ROOT_DIR\//}\"" 1>&2
     fi
-    eval "\"$GPCP_NET_CMD\" $verbose_opt -strict -target:$TARGET $source_files"
+    eval "\"$GPCP_NET_CMD\" $verbose_opt -target:$TARGET $source_files"
     if [[ $? -ne 0 ]]; then
         popd 1>/dev/null
         CPSYM=$cpsym
@@ -332,8 +332,8 @@ GPCP_NET_CMD="$GPCP_HOME/bin/gpcp.exe"
 
 PROJECT_NAME="$(basename $ROOT_DIR)"
 
-MAIN_NAME=Hello
-MAIN_CLASS=CP.Hello.$MAIN_NAME
+MAIN_NAME=TypeNames
+MAIN_CLASS=CP.TypeNames.$MAIN_NAME
 MAIN_ARGS=
 
 args "$@"

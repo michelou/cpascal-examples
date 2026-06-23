@@ -332,8 +332,8 @@ GPCP_NET_CMD="$GPCP_HOME/bin/gpcp.exe"
 
 PROJECT_NAME="$(basename $ROOT_DIR)"
 
-MAIN_NAME=Hello
-MAIN_CLASS=CP.Hello.$MAIN_NAME
+MAIN_NAME=HelloWorld
+MAIN_CLASS=CP.HelloWorld.$MAIN_NAME
 MAIN_ARGS=
 
 args "$@"

@@ -6,7 +6,7 @@
     <a href="https://en.wikipedia.org/wiki/Component_Pascal" rel="external"><img style="border:0;width:120px;" src="../docs/images/component-pascal.png" alt="CP project" /></a>
   </td>
   <td style="border:0;padding:0;vertical-align:text-top;">
-    Directory <strong><code>examples\</code></strong> contains <a href="https://en.wikipedia.org/wiki/Component_Pascal" rel="external">Component Pascal</a> code examples coming from various websites - mostly from the <a href="https://en.wikipedia.org/wiki/Component_Pascal" rel="external">Component Pascal project</a>.
+    Directory <strong><code>examples\</code></strong> contains <a href="https://en.wikipedia.org/wiki/Component_Pascal" rel="external">Component Pascal</a> code examples coming from various websites - mostly from the <a href="https://en.wikipedia.org/wiki/Component_Pascal" rel="external" title="https://en.wikipedia.org/wiki/Component_Pascal">Component Pascal project</a>.
   </td>
   </tr>
 </table>
@@ -16,7 +16,7 @@
 This project has the following directory structure :
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /a /f . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v /b [A-Z]</b>
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external" title="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree"">tree</a> /a /f . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external" title="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v /b [A-Z]</b>
 |   <a href="./Hello/build.bat">build.bat</a>
 \---<b>src</b>
     \---<b>main</b>
@@ -39,7 +39,9 @@ Execute main program "CP.Hello.Hello"
 Hello CP World
 </pre>
 
-## <span id="helloworld">`HelloWorld` Example</span>
+<!--=======================================================================-->
+
+## <span id="helloworld">`HelloWorld` Example</span> [**&#x25B4;**](#top)
 
 This project has the following directory structure :
 
@@ -52,9 +54,39 @@ This project has the following directory structure :
                 <a href="./HelloWorld/src/main/cp/HelloWorld.cp">HelloWorld.cp</a>
 </pre>
 
+Command [`sh`][sh][`build.sh`](./HelloWorld/build.sh)`-verbose clean run` generates and executes the CP program `target\Helloworld.exe` :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://man7.org/linux/man-pages/man1/sh.1p.html" rel="external" title="https://man7.org/linux/man-pages/man1/sh.1p.html">sh</a> <a href="./HelloWorld/build.sh">build.sh</a> -verbose clean run</b>
+Delete directory "target"
+Compile 1 Component Pascal source file to directory "target"
+#gpcp: NET is default target for this build
+#gpcp: Created HelloWorld.exe
+Copy runtime library to directory "target"
+Execute main program "target/HelloWorld.exe"
+Hello gpcp world
+</pre>
+
+We use option `-jvm` to generate and execute the Java program `target\classes\CP\HelloWord\HelloWorld.class` :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://man7.org/linux/man-pages/man1/sh.1p.html" rel="external" title="https://man7.org/linux/man-pages/man1/sh.1p.html">sh</a> <a href="./HelloWorld/build.sh">build.sh</a> -verbose -jvm clean run</b>
+Delete directory "target"
+Compile 1 Componet Pascal source file to directory "target/classes"
+Execute main program "CP.HelloWorld.HelloWorld"
+Hello gpcp world
+&nbsp;
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external" title="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /a /f target | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="externl" title="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v "^[A-Z]"</b>
+\---classes
+    |   HelloWorld.cps
+    \---CP
+        \---HelloWorld
+                HelloWorld.class
+</pre>
+
 <!--=======================================================================-->
 
-## <span id="jvmparams">`JvmParams` Example</span>
+## <span id="jvmparams">`JvmParams` Example</span> [**&#x25B4;**](#top)
 
 This project has the following directory structure :
 
@@ -116,7 +148,7 @@ float
 
 <!--=======================================================================-->
 
-## <span id="vectors">`Vectors` Example</span>
+## <span id="vectors">`Vectors` Example</span> [**&#x25B4;**](#top)
 
 This project has the following directory structure :
 
@@ -175,7 +207,7 @@ Mutate elements of copies
 The output directory `target\` looks as follows :
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external">tree</a> /a /f target | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree" rel="external" title="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /a /f target | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> /v /b [A-Z]</b>
         RTS.dll
         Vectors.cps
         Vectors.exe
@@ -199,17 +231,4 @@ The output directory `target\` looks as follows :
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
-
-[make]: https://en.wikipedia.org/wiki/Make_(software)
-[man1_diff]: https://www.linux.org/docs/man1/diff.html
-[mill_cli]: https://www.lihaoyi.com/mill/#command-line-tools
-[mvn_cli]: https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html
-[msys2]: https://www.msys2.org/
-[sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
-[sbt_docs_defs]: https://www.scala-sbt.org/1.0/docs/Basic-Def.html
-[scala]: https://www.scala-lang.org/
-[scala_cli]: https://scala-cli.virtuslab.org/docs/commands/basics
-[scala3_home]: https://dotty.epfl.ch/
-[sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
-[windows_stderr]: https://support.microsoft.com/en-us/help/110930/redirecting-error-messages-from-command-prompt-stderr-stdout
-[zip_archive]: https://www.howtogeek.com/178146/
+[sh]: https://man7.org/linux/man-pages/man1/sh.1p.html "https://man7.org/linux/man-pages/man1/sh.1p.html"

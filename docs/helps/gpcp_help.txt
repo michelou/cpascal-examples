@@ -1,0 +1,41 @@
+#gpcp: Unknown option "--help"
+gardens point component pascal:  version 1.4.07 of 04 March 2018
+#gpcp: Usage from the command line ...
+       $ gpcp [cp-options] file {file}
+# CP Options ...
+  General Options ---
+       -copyright   ==> Display copyright notice
+       -dostats     ==> Give a statistical summary
+       -help        ==> Write out this usage message
+       -list        ==> (default) Create *.lst file if errors
+       -list+       ==> Unconditionally create *.lst file
+       -list-       ==> Don't create error *.lst file
+       -quiet       ==> Compile silently if possible
+       -verbose     ==> Emit verbose diagnostics
+       -version     ==> Write out version number
+       -warn-       ==> Don't emit warnings
+       -nowarn      ==> Don't emit warnings
+  Environment Options ---
+       -clsdir:XXX  ==> Set class tree root in directory XXX
+       -cpsym:XXX   ==> Use environ. variable XXX instead of CPSYM
+       -hsize:NNN   ==> Set hashtable size >= NNN (0 .. 65000)
+       -special     ==> Compile dummy symbol file
+       -strict      ==> Disallow non-standard constructs
+  Output Options ---
+       -noasm       ==> Don't create asm (or object) files
+       -nocode      ==> Don't create any object files
+       -nosym       ==> Don't create *.sym (or asm or object) files
+       -symdir:XXX  ==> Place symbol files in directory XXX
+       -xmlerror    ==> Emit error messages in XML format
+  Code Generation Options ---
+       -asm7        ==> Default: Generate class files with V1_7 format
+       -asmN        ==> Classfiles use V1_N format, N = (5 .. 8)
+       -jasmin      ==> Create jasmin asm files (but do not run Jasmin)
+       -legacy      ==> Use the pre-v1.4 jvm class writer
+       -target:XXX  ==> Emit (jvm|net) assembly
+# Java Options ...
+       -D<name>=<value>  pass <value> to JRE as system property <name>
+       -DCPSYM=%CPSYM%   pass value of CPSYM environment variable to JRE
+#gpcp: This program comes with NO WARRANTY
+#gpcp: Read source/GPCPcopyright for license details
+#gpcp: No input files specified
