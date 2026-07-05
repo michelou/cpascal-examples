@@ -33,13 +33,13 @@ out/
 target/
 
 # Claude specific
+.claudeignore
 CLAUDE.md
 CLAUDE*local.md
 .claude/
 
 # Project specific
-.adt
-.ali
+*.lst
 *_LOCAL.ini
 *_LOCAL.json
 *_LOCAL.md

@@ -52,21 +52,21 @@ args() {
     for arg in "$@"; do
         case "$arg" in
         ## options
-        -debug)   DEBUG=1 ;;
-        -help)    HELP=1 ;;
-        -jvm)     TARGET="jvm" ;;
-        -net)     TARGET="net" ;;
-        -timer)   TIMER=1 ;;
-        -verbose) VERBOSE=1 ;;
+        -debug)       DEBUG=1 ;;
+        -help)        HELP=1 ;;
+        -jvm)         TARGET="jvm" ;;
+        -net)         TARGET="net" ;;
+        -timer)       TIMER=1 ;;
+        -verbose)     VERBOSE=1 ;;
         -*)
             error "Unknown option \"$arg\""
             EXITCODE=1 && return 0
             ;;
         ## subcommands
-        clean)   COMMANDS+=' clean' ;;
-        compile) COMMANDS+=" compile_$TARGET" ;;
+        clean)   CLEAN=1 ;;
+        compile) COMPILE=1 ;;
         help)    HELP=1 ;;
-        run)     COMMANDS+=" compile_$TARGET run_$TARGET" ;;
+        run)     COMPILE=1 && RUN=1 ;;
         *)
             error "Unknown subcommand \"$arg\""
             EXITCODE=1 && return 0
@@ -74,7 +74,7 @@ args() {
         esac
     done
     debug "Options    : TARGET=$TARGET TIMER=$TIMER VERBOSE=$VERBOSE"
-    debug "Subcommands: $COMMANDS"
+    debug "Subcommands: CLEAN=$CLEAN COMPILE=$COMPILE HELP=$HELP RUN=$RUN"
     debug "Variables  : \"CROOT=$CROOT\""
     debug "Variables  : GIT_HOME=$GIT_HOME"
     debug "Variables  : GPCP_HOME=$GPCP_HOME"
@@ -188,11 +188,11 @@ compile_net() {
     if [[ $DEBUG -eq 1 ]]; then
         debug "CPSYM=$CPSYM"
         debug "Current directory: $(mixed_path $PWD)"
-        debug "\"$GPCP_NET_CMD\" $verbose_opt -target:$TARGET $source_files"
+        debug "\"$GPCP_NET_CMD\" $verbose_opt -strict -target:$TARGET $source_files"
     elif [[ $VERBOSE -eq 1 ]]; then
         echo "Compile $n_files to directory \"${TARGET_DIR/$ROOT_DIR\//}\"" 1>&2
     fi
-    eval "\"$GPCP_NET_CMD\" $verbose_opt -target:$TARGET $source_files"
+    eval "\"$GPCP_NET_CMD\" $verbose_opt -strict -target:$TARGET $source_files"
     if [[ $? -ne 0 ]]; then
         popd 1>/dev/null
         CPSYM=$cpsym
@@ -277,9 +277,11 @@ CLASSES_DIR="$TARGET_DIR/classes"
 
 ## We refrain from using `true` and `false` which are Bash commands
 ## (see https://man7.org/linux/man-pages/man1/false.1.html)
-COMMANDS=
+CLEAN=0
+COMPILE=0
 DEBUG=0
 HELP=0
+RUN=0
 TARGET=net
 TIMER=0
 VERBOSE=0
@@ -291,13 +293,11 @@ cygwin=0
 mingw=0
 msys=0
 darwin=0
-linux=0
 case "$(uname -s)" in
     CYGWIN*) cygwin=1 ;;
     MINGW*)  mingw=1 ;;
     MSYS*)   msys=1 ;;
-    Darwin*) darwin=1 ;;
-    Linux*)  linux=1
+    Darwin*) darwin=1
 esac
 unset CYGPATH_CMD
 if [[ $(($cygwin + $mingw + $msys)) -gt 0 ]]; then
@@ -332,8 +332,8 @@ GPCP_NET_CMD="$GPCP_HOME/bin/gpcp.exe"
 
 PROJECT_NAME="$(basename $ROOT_DIR)"
 
-MAIN_NAME=TypeNames
-MAIN_CLASS=CP.TypeNames.$MAIN_NAME
+MAIN_NAME=HelloWorld
+MAIN_CLASS=CP.HelloWorld.$MAIN_NAME
 MAIN_ARGS=
 
 args "$@"
@@ -344,8 +344,13 @@ args "$@"
 
 [[ $HELP -eq 1 ]] && help && cleanup
 
-for cmd in $COMMANDS; do
-   $cmd
-   [[ $EXITCODE -eq 0 ]] || cleanup 1
-done
+if [[ $CLEAN -eq 1 ]]; then
+    clean || cleanup 1
+fi
+if [[ $COMPILE -eq 1 ]]; then
+    compile_$TARGET || cleanup 1
+fi
+if [[ $RUN -eq 1 ]]; then
+    run_$TARGET || cleanup 1
+fi
 cleanup

@@ -95,4 +95,4 @@ help:
 .PHONY: all build clean help run
 
 .SUFFIXES:
-.SUFFIXES: .class .cp .exe
+.SUFFIXES: .class .cp .cps .dll .exe .il .pdb

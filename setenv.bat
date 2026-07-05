@@ -164,10 +164,20 @@ if "%__GIVEN_PATH:~-1,1%"=="\" set "__GIVEN_PATH=%__GIVEN_PATH:~0,-1%"
 
 @rem https://serverfault.com/questions/62578/how-to-get-a-list-of-drive-letters-on-a-system-through-a-windows-shell-bat-cmd
 set __DRIVE_NAMES=F:G:H:I:J:K:L:M:N:O:P:Q:R:S:T:U:V:W:X:Y:Z:
-for /f %%i in ('wmic logicaldisk get deviceid ^| findstr :') do (
-    set "__DRIVE_NAMES=!__DRIVE_NAMES:%%i=!"
+@rem deprecated since Windows 11
+@rem for /f %%i in ('wmic logicaldisk get deviceid ^| findstr :') do (
+@rem     set "__DRIVE_NAMES=!__DRIVE_NAMES:%%i=!"
+@rem )
+@rem alternative in Windows 11
+for /f "delims=" %%i in ('fsutil fsinfo drives') do (
+    set "__LINE=%%i"
+    set "__DRIVES=!__LINE:Drives:=!"
+    set "__DRIVES=!__DRIVES:\=!"
+    for %%d in (!__DRIVES!) do (
+        set "__DRIVE_NAMES=!__DRIVE_NAMES:%%d=!"
+    )
 )
-if %_DEBUG%==1 echo %_DEBUG_LABEL% __DRIVE_NAMES=%__DRIVE_NAMES% ^(WMIC^) 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% __DRIVE_NAMES=%__DRIVE_NAMES% ^(fsutil^) 1>&2
 if not defined __DRIVE_NAMES (
     echo %_ERROR_LABEL% No more free drive name 1>&2
     set _EXITCODE=1
@@ -469,6 +479,8 @@ set __VERBOSE=%1
 set __VERSIONS_LINE1=
 set __VERSIONS_LINE2=
 set __WHERE_ARGS=
+setlocal enabledelayedexpansion
+
 where /q "%JAVA_HOME%\bin:java.exe"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,*" %%i in ('"%JAVA_HOME%\bin\java.exe" -version 2^>^&1 ^| findstr version 2^>^&1') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% java %%~k,"
@@ -512,10 +524,10 @@ if %__VERBOSE%==1 (
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do (
         set "__LINE=%%p"
-        setlocal enabledelayedexpansion
         echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
     )
     echo Environment variables: 1>&2
+    if defined CROOT echo    "CROOT=%CROOT%" 1>&2
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
     if defined GPCP_HOME echo    "GPCP_HOME=%GPCP_HOME%" 1>&2
     if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
@@ -524,10 +536,10 @@ if %__VERBOSE%==1 (
     echo Path associations: 1>&2
     for /f "delims=" %%i in ('subst') do (
         set "__LINE=%%i"
-        setlocal enabledelayedexpansion
         echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
     )
 )
+endlocal
 goto :eof
 
 @rem #########################################################################
@@ -536,6 +548,7 @@ goto :eof
 :end
 endlocal & (
     if %_EXITCODE%==0 (
+        if not defined CROOT set "CROOT=%_GPCP_HOME%"
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined GPCP_HOME set "GPCP_HOME=%_GPCP_HOME%"
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"

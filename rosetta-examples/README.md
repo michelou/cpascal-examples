@@ -204,7 +204,7 @@ public class CP.Point.Point_Instance {
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2026* [**&#9650;**](#top)  <!-- May 2024 -->
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2026* [**&#9650;**](#top)  <!-- May 2024 -->
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

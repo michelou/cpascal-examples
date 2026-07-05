@@ -53,7 +53,7 @@ ifeq ($(TARGET),jvm)
 else
 	[[ -d "$(TARGET_DIR)" ]] || "$(MKDIR)" -p "$(TARGET_DIR)"
 	pushd $(TARGET_DIR) 1>/dev/null; \
-	$(eval CPSYM := $(CPSYM)) "$(GPCP_NET)" $(GPCP_OPTS) ../$<
+	CPSYM="$(CPSYM)" "$(GPCP_NET)" $(GPCP_OPTS) ../$<
 	$(eval RTS_FILE := $(subst \,/,$(GPCP_HOME))/bin/RTS.dll)
 	@[[ -f "$(RTS_FILE)" ]] || ( $(ECHO) "Error: Runtime library not found " && exit 1 )
 	cp "$(RTS_FILE)" "$(TARGET_DIR)"
@@ -95,4 +95,4 @@ help:
 .PHONY: all build clean help run
 
 .SUFFIXES:
-.SUFFIXES: .class .cp .exe
+.SUFFIXES: .class .cp .cps .exe .dll .exe .il .pdb

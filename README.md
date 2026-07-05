@@ -2,9 +2,9 @@
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
-  <td style="border:0;padding:0 10px 0 0;min-width:25%;"><a href="https://en.wikipedia.org/wiki/Component_Pascal" rel="external"><img src="./docs/images/component-pascal.png" width="100" alt="Component Pascal project"/></a></td>
+  <td style="border:0;padding:0 10px 0 0;min-width:25%;"><a href="https://en.wikipedia.org/wiki/Component_Pascal" rel="external" title="https://en.wikipedia.org/wiki/Component_Pascal"><img src="./docs/images/component-pascal.png" width="100" alt="Component Pascal project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://en.wikipedia.org/wiki/Component_Pascal" rel="external">Component Pascal</a> code examples coming from various websites and books.<br/>
-  It also includes several build scripts (<a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>, <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html" rel="external">Gradle scripts</a>) for experimenting with <a href="https://en.wikipedia.org/wiki/Component_Pascal" rel="external">Component Pascal</a> on a Windows machine.
+  It also includes several build scripts (<a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>, <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html" rel="external">Gradle scripts</a>) for experimenting with <a href="https://en.wikipedia.org/wiki/Component_Pascal" rel="external" title="https://en.wikipedia.org/wiki/Component_Pascal">Component Pascal</a> on a Windows machine.
   </td>
   </tr>
 </table>
@@ -17,7 +17,7 @@ This project depends on the following external software for the **Microsoft Wind
 
 - [Gardens Point Component Pascal for Java 1.4][gpcp_java_downloads] <sup id="anchor_01">[1](#footnote_01)</sup>
 - [Gardens Point Component Pascal for .NET 1.4][gpcp_downloads]
-- [Git 2.54][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.55][git_downloads] ([*release notes*][git_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
 <!--
 - [OpenJDK8U JRE 8u272][jre_8u272] <sup id="anchor_02">[2](#footnote_02)</sup> ([*release notes*][jre_8u272_relnotes])
@@ -26,16 +26,16 @@ This project depends on the following external software for the **Microsoft Wind
 Optionally one may also install the following software:
 
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
-- [Visual Studio Code 1.125][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.127][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*in reference to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*June 2026*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*July 2026*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\ConEmu\                  <i>( 26 MB)</i>
-C:\opt\Git\                     <i>(394 MB)</i>
+C:\opt\Git\                     <i>(388 MB)</i>
 C:\opt\gpcp-JVM-1.4.08\         <i>( 54 MB)</i>
 C:\opt\gpcp-NET-1.4.08\         <i>( 22 MB)</i>
 C:\opt\jdk-temurin-17.0.19_10\  <i>(302 MB)</i>
@@ -50,8 +50,8 @@ This project is organized as follows:
 <pre style="font-size:80%;">
 <a href="./bin/">bin\</a>
 <a href="./docs/">docs\</a>
-<a href="./examples/">examples\</a>{<a href="./examples/Hello/">Hello</a>, <a href="./examples/JvmParams/">JvmParams</a>, <a href="./examples/TypeNames/">TypeParams</a>, <a href="./examples/Vectors/">Vectors</a>, etc.}
-<a href="./rosetta-examples/">rosetta-examples\</a>{<a href="./rosetta-examples/AryLen/">AryLen</a>, etc.}
+<a href="./examples/">examples\</a>{<a href="./examples/README.md">README.md</a>, <a href="./examples/Hello/">Hello</a>, <a href="./examples/JvmParams/">JvmParams</a>, <a href="./examples/TypeNames/">TypeParams</a>, <a href="./examples/Vectors/">Vectors</a>, etc.}
+<a href="./rosetta-examples/">rosetta-examples\</a>{<a href="./examples/README.md">README.md</a>, <a href="./rosetta-examples/AryLen/">AryLen</a>, etc.}
 README.md
 <a href="RESOURCES.md">RESOURCES.md</a>
 <a href="setenv.bat">setenv.bat</a>
@@ -63,7 +63,7 @@ where
 - directory [**`docs\`**](docs/) contains [Component Pascal][component_pascal] related documents.
 - directory [**`examples\`**](examples/) contains [Component Pascal][component_pascal] code examples grabbed from various websites.
 - directory [**`rosetta-examples\`**](examples/) contains [Component Pascal][component_pascal] code examples grabbed from the [Rosetta Code][rosetta_code] website.
-- file [**`README.md`**](README.md) is the [Markdown][github_markdown] document for this page.
+- file **`README.md`** is the [Markdown][github_markdown] document for this page.
 - file [**`RESOURCES.md`**](RESOURCES.md) gathers [Component Pascal][component_pascal] related informations.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
 
@@ -83,15 +83,15 @@ In the next section we give a brief description of the [batch files][windows_bat
 ### **`setenv.bat`** <sup id="anchor_04">[4](#footnote_04)</sup>
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="./setenv.bat">setenv</a> -verbose</b>
+<b>&gt; <a href="./setenv.bat" title="./setenv.bat">setenv</a> -verbose</b>
 Select drive G: for which a substitution already exists
 Tool versions:
    java 17.0.19, gpcp 1.4.08b3, j2cps 1.4.07,
-   git 2.54.0, diff 3.12, bash 5.3.9(1)-release
+   make 4.4.1, git 2.55.0, diff 3.12, bash 5.3.15(1)-release
 Tool paths:
-   C:\opt\jdk-temurin-1.8.0u412-b08\bin\javac.exe
    C:\opt\jdk-temurin-17.0.19_10\bin\java.exe
    C:\opt\gpcp-NET-1.4.08\bin\gpcp.exe
+   C:\opt\msys64\usr\bin\make.exe
    C:\opt\Git\bin\git.exe
    C:\opt\Git\usr\bin\diff.exe
    C:\opt\Git\bin\bash.exe
@@ -100,6 +100,7 @@ Environment variables:
    "GPCP_HOME=C:\opt\gpcp-NET-1.4.08"
    "JAVA_HOME=C:\opt\jdk-temurin-17.0.19_10"
    "JROOT=C:\opt\gpcp-JVM-1.4.08"
+   "MSYS_HOME=C:\opt\msys64"
 Path associations:
    H:\: => %USERPROFILE%\workspace-perso\component-pascal-examples
 </pre>
@@ -116,9 +117,9 @@ GPCP for JVM version <b>1.4.07</b> supports JRE <a href="https://github.com/Adop
 Any newer version of Java VM will throw the exception `java.lang.ClassFormatError`; for instance [**8u282**](https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/tag/jdk8u282-b08) :
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="">set</a> JAVA_HOME=c:\opt\jdk8u282-b08-jre</b>
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/set_1" rel="external" title="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/set_1">set</a> JAVA_HOME=c:\opt\jdk8u282-b08-jre</b>
 
-<b>&gt; <a href="./examples/Hello/build.bat">build</a> -verbose -jvm clean compile</b>
+<b>&gt; <a href="./examples/Hello/build.bat" title="./examples/Hello/build.bat">build</a> -verbose -jvm clean compile</b>
 Delete directory "target"
 Compile 1 Component Pascal source file to directory "H:\examples\Hello\target\classes"
 <span style="color:red;">Exception in thread "main" java.lang.ClassFormatError: Illegal class name "LCP/CPJrts/XHR;" in class file CP/Visitor/Visitor_ImplementedCheck</span>
@@ -137,7 +138,7 @@ Compile 1 Component Pascal source file to directory "H:\examples\Hello\target\cl
         at CP.gpcp.gpcp.main(gpcp.cp:40)
 Error: Failed to compile 1 Component Pascal source file to directory "H:\examples\Hello\target\classes"
 </pre>
-Fortunately, version [**1.4.0.8**](https://github.com/pahihu/gpcp-JVM/releases/tag/1.4.08) adds support for Java 11 and Java 17. Andras Pahi has hacked the GPCP compiler to emit local/stack declarations without semicolons. After JDK 1.8.0_275 the JVM follows the spec more rigorously and does not allow semicolons in class names.
+Fortunately, version [**1.4.08**][github_gpcp_1408] adds support for **Java 11** and **Java 17**. Andras Pahi has hacked the GPCP compiler to emit local/stack declarations without semicolons. After JDK 1.8.0_275 the JVM follows the spec more rigorously and does not allow semicolons in class names.
 </dd></dl>
 
 <span id="footnote_02">[2]</span> ***Downloads*** [↩](#anchor_03)
@@ -151,8 +152,8 @@ In our case we downloaded the following installation files (see <a href="#proj_d
 <a href="https://github.com/pahihu/gpcp-JVM/releases/tag/1.4.08" rel="external">gpcp-JVM-1.4.08.zip</a>                                <i>(  5 MB)</i>
 <a href="https://github.com/k-john-gough/gpcp/releases/tag/v1.4.08-beta3" rel="external">gpcp-NET1.4.08b3.zip</a>                               <i>(  4 MB)</i>
 <a href="https://adoptium.net/temurin/releases?version=17&os=windows&arch=x64">OpenJDK17U-jdk_x64_windows_hotspot_17.0.19_10.zip</a>  <i>(188 MB)</i>
-<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.54.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.125.1.zip</a>                       <i>(131 MB)</i>
+<a href="https://git-scm.com/download/win" rel="external">PortableGit-2.55.0-64-bit.7z.exe</a>                   <i>( 47 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.127.0.zip</a>                       <i>(131 MB)</i>
 </pre>
 </dd></dl>
 
@@ -177,59 +178,9 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsde
 Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>), <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> does invoke <code><b>VsDevCmd.bat</b></code> (resp. <code><b>vcvarall.bat</b></code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
 </dd></dl>
 
-<span id="footnote_05">[5]</span> ***GPCP command line options*** [↩](#anchor_05)
-
-<dl><dd>
-You shouldn't be misled by the help message of the <i>hacked</i> version <b>1.4.0.8</b> which still prints <b>1.4.0.7</b> :
-
-<pre style="font-size:80%;">
-<b>&gt; C:\opt\gpcp-JVM-1.4.08\bin\gpcp.bat -help</b>
-gardens point component pascal:  version 1.4.07 of 04 March 2018
-#gpcp: Usage from the command line ...
-       $ gpcp [cp-options] file {file}
-# CP Options ...
-  General Options ---
-       -copyright   ==> Display copyright notice
-       -dostats     ==> Give a statistical summary
-       -help        ==> Write out this usage message
-       -list        ==> (default) Create *.lst file if errors
-       -list+       ==> Unconditionally create *.lst file
-       -list-       ==> Don't create error *.lst file
-       -quiet       ==> Compile silently if possible
-       -verbose     ==> Emit verbose diagnostics
-       -version     ==> Write out version number
-       -warn-       ==> Don't emit warnings
-       -nowarn      ==> Don't emit warnings
-  Environment Options ---
-       -clsdir:XXX  ==> Set class tree root in directory XXX
-       -cpsym:XXX   ==> Use environ. variable XXX instead of CPSYM
-       -hsize:NNN   ==> Set hashtable size >= NNN (0 .. 65000)
-       -special     ==> Compile dummy symbol file
-       -strict      ==> Disallow non-standard constructs
-  Output Options ---
-       -noasm       ==> Don't create asm (or object) files
-       -nocode      ==> Don't create any object files
-       -nosym       ==> Don't create *.sym (or asm or object) files
-       -symdir:XXX  ==> Place symbol files in directory XXX
-       -xmlerror    ==> Emit error messages in XML format
-  Code Generation Options ---
-       -asm7        ==> Default: Generate class files with V1_7 format
-       -asmN        ==> Classfiles use V1_N format, N = (5 .. 8)
-       -jasmin      ==> Create jasmin asm files (but do not run Jasmin)
-       -legacy      ==> Use the pre-v1.4 jvm class writer
-       -target:XXX  ==> Emit (jvm|net) assembly
-# Java Options ...
-       -D<name>=<value>  pass <value> to JRE as system property <name>
-       -DCPSYM=%CPSYM%   pass value of CPSYM environment variable to JRE
-#gpcp: This program comes with NO WARRANTY
-#gpcp: Read source/GPCPcopyright for license details
-#gpcp: No input files specified
-</pre>
-</dd></dl>
-
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2026* [**&#9650;**](#top)  <!-- June 2024 -->
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2026* [**&#9650;**](#top)  <!-- June 2024 -->
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -249,7 +200,8 @@ gardens point component pascal:  version 1.4.07 of 04 March 2018
 [flix_examples]: https://github.com/michelou/flix-examples#top
 [git_cli]: https://git-scm.com/docs/git "https://git-scm.com/docs/git"
 [git_downloads]: https://git-scm.com/download/win "https://git-scm.com/download/win"
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.54.0.adoc
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.55.0.adoc
+[github_gpcp_1408]: https://github.com/pahihu/gpcp-JVM/releases/tag/1.4.08 "https://github.com/pahihu/gpcp-JVM/releases/tag/1.4.08"
 [github_markdown]: https://github.github.com/gfm/ "https://github.github.com/gfm/"
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [gpcp_downloads]: https://github.com/k-john-gough/gpcp/releases

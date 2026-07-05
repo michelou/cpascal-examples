@@ -9,8 +9,8 @@ DEBUG ?= 0
 
 include ../Makefile.inc
 
-MAIN_NAME  = TypeNames
-MAIN_CLASS = CP.TypeNames.$(MAIN_NAME)
+MAIN_NAME  = JvmParams
+MAIN_CLASS = CP.JvmParams.$(MAIN_NAME)
 MAIN_ARGS  =
 
 TARGET ?= net

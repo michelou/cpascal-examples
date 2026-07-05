@@ -303,6 +303,7 @@ if %__N%==0 (
 ) else ( set __N_FILES=%__N% Component Pascal source files
 )
 pushd "%_TARGET_DIR%"
+if %_DEBUG%==1 echo %_DEBUG_LABEL% Current directory: %CD% 1>&2
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_GPCP_NET_CMD%" %__GPCP_OPTS% %__SOURCE_FILES% 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% to directory "!_TARGET_DIR:%_ROOT_DIR%\=!" ^(DotNet^) 1>&2
